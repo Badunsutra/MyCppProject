@@ -34,4 +34,7 @@ namespace algorithm {
 		}
 	}
 
+	pair<bool, double> CalcMedian(vector<double> samples) {
+			return { false, 0 };
+	}
 }
