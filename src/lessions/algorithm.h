@@ -8,21 +8,13 @@
 #include <algorithm>
 #include <string>
 #include <cctype>
+#include <utility>
 
 using namespace std;
 
 namespace algorithm {
 
-    void PrintWorryCount(const vector<bool>& is_nervous) {
-        // подсчитываем количество элементов в векторе is_nervous, равных true
-        int worry_count = 0;
-        for (bool status : is_nervous) {
-            if (status) {
-                ++worry_count;
-            }
-        }
-        cout << worry_count << endl;
-    }
+    void PrintWorryCount(const vector<bool>& is_nervous);
 
     //Ранее вы реализовали функцию PrintWorryCount. Перепишите её, используя count.
     inline void PrintWorryCount2(const vector<bool>& is_nervous) {
@@ -35,6 +27,9 @@ namespace algorithm {
         return count_if(xs.begin(), xs.end(), 
                         [](const string& s) {return !s.empty() && tolower(s.at(0)) == 'a'; });
     }
+
+    //Считайте количество людей, имя и возраст каждого. Выведите все имена с новой строки по старшинству — от старых к молодым.
+    void GetNumbersOfPeopleWithNameAgeAndSort();
 }
 
 
