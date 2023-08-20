@@ -35,6 +35,16 @@ namespace algorithm {
 	}
 
 	pair<bool, double> CalcMedian(vector<double> samples) {
+		if (samples.empty())
 			return { false, 0 };
+
+		auto m = samples.begin() + samples.size() / 2;
+		nth_element(samples.begin(), m, samples.end());
+		if (samples.size() % 2) {
+			return { true, *m };
+		}
+		else {
+			return { true, (*(m--) + *m) / 2};			
+		}
 	}
 }
