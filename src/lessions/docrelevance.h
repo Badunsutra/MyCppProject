@@ -8,6 +8,10 @@
 #include <set>
 #include <string>
 #include <vector>
+#include <utility>
+#include <algorithm>
+#include <utility>
+#include <execution>
 
 using namespace std;
 
@@ -29,7 +33,12 @@ namespace docrel {
 		int document_id,
 		const string& document);
 
-	vector<pair<int, int>> FindDocuments(
+	vector<pair<int, int>> FindAllDocuments(
+		const map<string, set<int>>& word_to_documents,
+		const set<string>& stop_words,
+		const string& query);
+
+	vector<pair<int, int>> FindTopDocuments(
 		const map<string, set<int>>& word_to_documents,
 		const set<string>& stop_words,
 		const string& query);
