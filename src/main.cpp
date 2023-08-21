@@ -15,9 +15,8 @@ void printVec(const vector<T>& vec) {
 }
 
 int main() {
-	cout << CalcMedian({ 1, 2, 3, 4 }).second << endl;
-	cout << CalcMedian({ 1, 2, 3 }).second << endl;
-	cout << CalcMedian({ 1, 2, 1000 }).second << endl;
+	cout << Average({ 1, 2, 3 }) << endl;
+	cout << AddStopWords("some tasty oranges", { "of", "in" }) << endl;
 
 
 	return 0;

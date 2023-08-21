@@ -4,11 +4,13 @@
 #define _YA_ALGORITHM_H_
 
 #include <vector>
+#include <set>
 #include <iostream>
 #include <algorithm>
 #include <string>
 #include <cctype>
 #include <utility>
+#include <numeric>
 
 using namespace std;
 
@@ -34,6 +36,19 @@ namespace algorithm {
     // верните {true, медиана}, если она существует, то есть вектор непустой, иначе - {false, 0}
     // обратите внимание - вектор принимаем по значению, так как его придётся немного подпортить, чтобы вернуть ответ
     pair<bool, double> CalcMedian(vector<double> samples);
+
+    //Вычислите среднее арифметическое вектора чисел. Считайте, что среднее арифметическое пустого массива равно нулю.
+    inline double Average(const vector<int>& xs) {
+        return xs.size() ? accumulate(xs.begin(), xs.end(), 0) / xs.size() : 0.0;
+    }
+
+    //Напишите функцию, которая принимает строку-запрос и множество стоп-слов и возвращает новую строку.
+    //В новой строке после запроса идут стоп-слова через пробел, перед каждым стоит дефис. 
+    //Передайте в accumulate четвёртым аргументом функцию, сворачивающую множество стоп-слов в «хвост» нужного формата.
+    inline string AddStopWords(const string& query, const set<string>& stop_words) {
+        return accumulate(stop_words.begin(), stop_words.end(), query,
+            [](string acc, string add) {return acc + " -" + add; });
+    }
 }
 
 
