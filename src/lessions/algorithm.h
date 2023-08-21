@@ -49,6 +49,8 @@ namespace algorithm {
         return accumulate(stop_words.begin(), stop_words.end(), query,
             [](string acc, string add) {return acc + " -" + add; });
     }
+
+    vector<int> CountNamesLong(const set<string>& storage, const vector<string>& candidates);
 }
 
 

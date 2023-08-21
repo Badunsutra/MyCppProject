@@ -47,4 +47,11 @@ namespace algorithm {
 			return { true, (*(m--) + *m) / 2};			
 		}
 	}
+
+	vector<int> CountNamesLong(const set<string>& storage, const vector<string>& candidates) {
+		vector<int> isInSet(candidates.size());
+		transform(candidates.begin(), candidates.end(), isInSet.begin(),
+			[&storage](const string& s) {return storage.count(s) ? 1 : 0; });
+		return isInSet;
+	}
 }
